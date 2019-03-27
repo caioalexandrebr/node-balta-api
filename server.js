@@ -20,8 +20,9 @@ let route = router.get('/', (req, res, next) => {
 app.use('/', route);
 
 server.listen(port);
-console.log('API http://localhost:', port);
 server.on('error', onError);
+server.on('listening', onListening);
+console.log('API http://localhost:', port);
 
 function normalizePort(val) {
     const port = parseInt(val, 10);
@@ -58,4 +59,12 @@ function onError(error) {
         default:
             throw error;
     }
+}
+
+function onListening() {
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+        ? 'pipe' + addr
+        : 'port' + addr.port;
+    debug('Listening on ' + bind);
 }
