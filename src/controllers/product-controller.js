@@ -1,7 +1,5 @@
 'use strict'
 
-const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/product-repository');
 
@@ -67,7 +65,7 @@ exports.post = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao cadastrar o produto.'
+            message: 'Falha ao processar sua requisição.'
         });
     }
 };
@@ -80,7 +78,7 @@ exports.put = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao cadastrar o produto.'
+            message: 'Falha ao processar sua requisição.'
         });
     }
 };
