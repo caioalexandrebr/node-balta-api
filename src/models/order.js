@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -29,15 +29,15 @@ const schema = new Schema({
             required: true,
             default: 1
         },
-        prince: {
+        price: {
             type: Number,
             required: true
         },
         product: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product'
-        },
-    }]
+        }
+    }],
 });
 
 module.exports = mongoose.model('Order', schema);

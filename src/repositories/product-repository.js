@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
@@ -6,7 +6,7 @@ const Product = mongoose.model('Product');
 exports.get = async() => {
     const res = await Product.find({
         active: true 
-    }, 'title prince slug');
+    }, 'title price slug');
     return res;
 };
 
@@ -14,7 +14,7 @@ exports.getBySlug = async(slug) => {
     const res = await Product.findOne({
         slug: slug,
         active: true 
-    }, 'title description prince slug tags');
+    }, 'title description price slug tags');
     return res;
 };
 
@@ -22,7 +22,7 @@ exports.getByTag = async(tag) => {
     const res = await Product.find({
         tags: tag,
         active: true 
-    }, 'title description prince slug tags');
+    }, 'title description price slug tags');
     return res;
 };
 
@@ -36,7 +36,7 @@ exports.post = async(req) => {
     product.title = req.body.title;
     product.slug = req.body.slug;
     product.description = req.body.description;
-    product.prince = req.body.prince;
+    product.price = req.body.price;
     product.active = req.body.active;
     product.tags = req.body.tags;
 
@@ -48,7 +48,7 @@ exports.put = async(req) => {
         $set: {
             title: req.body.title,
             description: req.body.description,
-            prince: req.body.prince,
+            price: req.body.price,
             slug: req.body.slug
         }
     });

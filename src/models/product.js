@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -21,7 +21,7 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    prince: {
+    price: {
         type: Number,
         required: true
     },
