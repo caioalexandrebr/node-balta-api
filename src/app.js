@@ -3,12 +3,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const app = express();
 const router = express.Router();
 
 // loading mongodb
-mongoose.connect('mongodb://localhost:27017/node_balta_api', {useNewUrlParser: true});
+mongoose.connect(config.connectionString , {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 
 // loading models
