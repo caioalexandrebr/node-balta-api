@@ -2,6 +2,7 @@
 
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/customer-repository');
+const md5 = require('md5');
 
 exports.post = async(req, res, next) => {
     let contract = new ValidationContract();
@@ -18,7 +19,7 @@ exports.post = async(req, res, next) => {
         await repository.create({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: md5(req.body.password)
         });
 
         res.status(201).send({
