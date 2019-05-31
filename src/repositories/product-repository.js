@@ -49,7 +49,8 @@ exports.put = async(req) => {
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
-            slug: req.body.slug
+            slug: req.body.slug,
+            tags: req.body.tags
         }
     });
 };
